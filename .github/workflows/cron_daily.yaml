@@ -39,9 +39,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
   keepaliveJob:
     name: Keepalive Workflow
+    if: ${{ always() }}
+    needs: cleanWebhooks
     runs-on: ubuntu-latest
     permissions:
-      actions: write
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: gautamkrishnar/keepalive-workflow@v2
+        with:
+          use_api: false
