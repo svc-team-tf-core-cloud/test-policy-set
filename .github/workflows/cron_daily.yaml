@@ -37,3 +37,11 @@ jobs:
           route: DELETE /repos/${{ github.repository }}/hooks/${{ matrix.value }}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  keepaliveJob:
+    name: Keepalive Workflow
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/keepalive-workflow@v2
