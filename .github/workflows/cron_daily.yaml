@@ -1,4 +1,4 @@
-name: Weekend Cleanup
+name: Daily Cleanup
 on:
   workflow_dispatch:
   schedule:
